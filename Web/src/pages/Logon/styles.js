@@ -21,7 +21,7 @@ export const Container = styled.div`
   }
   section.form form h1{
     font-size: 32px;
-    margin-right: 30px;
+    margin-bottom: 32px;
   }
   
 `;

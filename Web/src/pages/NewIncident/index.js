@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import api from '../../services/api';
 
 import logo from '../../assets/logo.svg';
 
@@ -9,6 +10,32 @@ import Input, { Textarea } from '../../components/Input';
 import { Container, Content, ArrowLeft } from './styles';
 
 export default function NewIncident() {
+  const history = useHistory();
+  const ongId = localStorage.getItem('ongId');
+  const [ title, setTitle ] = useState("");
+  const [ description, setDescription ] = useState("");
+  const [ value, setValue ] = useState("");
+
+  async function handleNewIncident(e) {
+    e.preventDefault();
+
+    const data = {
+      title,
+      description,
+      value
+    }
+    alert(ongId)
+    try {
+      await api.post('/incidents', data, {
+        headers: {
+          Authorization: ongId
+        }
+      })
+      history.push('/profile')
+    } catch (error) {
+      alert('Erro, tente novamente mais tarde!')
+    }
+  }
   return (
     <Container>
       <Content>
@@ -24,14 +51,24 @@ export default function NewIncident() {
           </BackLink>
         </section>
 
-        <form>
-          <Input placeholder="Titulo do caso"/>
-          <Textarea placeholder="Descrição"/>
-          <Input placeholder="whatsapp"/>
-
-          <Input placeholder="Valor em reais"/>
+        <form onSubmit={handleNewIncident}>
+          <Input 
+            placeholder="Titulo do caso"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+          />
+          <Textarea 
+            placeholder="Descrição"
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
+          <Input 
+            placeholder="Valor em reais"
+            value={value}
+            onChange={e => setValue(e.target.value)}
+          />
           
-          <Button type="submit">Cadstrar</Button>
+          <Button type="submit">Cadastrar</Button>
         </form>
       </Content>
     </Container>
