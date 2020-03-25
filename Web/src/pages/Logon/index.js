@@ -7,6 +7,7 @@ import api from '../../services/api'
 import heroesImg from '../../assets/heroes.png';
 import logoImg from '../../assets/logo.svg';
 
+import Alert from '../../components/Alert';
 import BackLink from '../../components/BackLink';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -28,7 +29,10 @@ export default function Logon() {
 
       history.push('/profile')
     } catch (error) {
-      alert('Falha no login, Tente novamente!');
+      Alert({
+        type: 'error',
+        message: 'Falha no login, Tente novamente!'
+      });
     }
   }
   return (
