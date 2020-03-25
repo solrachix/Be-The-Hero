@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FiArrowLeft } from 'react-icons/fi';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   width: 100%;
@@ -15,8 +16,8 @@ export const Container = styled.div`
 export const Content = styled.div`
   width: 100%;
   padding: 96px;
-  background: #f0f0f5;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+  background: ${({ theme }) => theme.colors.secundary };
+  box-shadow: 0 0 100px ${({ theme }) => darken(0.1, theme.colors.secundary) };
   border-radius: 8px;
 
   display: flex;
@@ -33,7 +34,7 @@ export const Content = styled.div`
   }
   section p{
     font-size: 18px;
-    color: #737388;
+    color: ${({ theme }) => theme.colors.tertiary };
     line-height: 32px;
   }
 

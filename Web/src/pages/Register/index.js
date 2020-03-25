@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { ThemeContext } from 'styled-components';
 
 import api from '../../services/api';
 
@@ -11,6 +12,7 @@ import Input from '../../components/Input';
 import { Container, Content, ArrowLeft } from './styles';
 
 export default function Register() {
+  const themeContext = useContext(ThemeContext).colors;
   const history = useHistory();
 
   const [ name, setName ] = useState("");
@@ -50,7 +52,7 @@ export default function Register() {
           <p>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casis da sua ONG.</p>
           
           <BackLink to="/">
-            <ArrowLeft size={16} color="#e02041"/>
+            <ArrowLeft size={16} color={themeContext.primary}/>
             Não tenho cadastro
           </BackLink>
         </section>

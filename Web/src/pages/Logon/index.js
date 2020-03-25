@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom'
+import { ThemeContext } from 'styled-components';
 
 import api from '../../services/api'
 
@@ -12,6 +13,7 @@ import Input from '../../components/Input';
 import { Container, LogIn } from './styles';
 // f86732d4
 export default function Logon() {
+  const themeContext = useContext(ThemeContext).colors;
   const history = useHistory();
   const [ id, setId ] = useState("");
 
@@ -40,11 +42,11 @@ export default function Logon() {
           <Input 
             value={id}
             onChange={e => setId(e.target.value)}
-            placeholder="Sua Id"/>
+            placeholder="Seu Id"/>
           <Button type="submit">Entrar</Button>
 
           <BackLink to="/register">
-            <LogIn size={16} color="#e02041"/>
+            <LogIn size={16} color={themeContext.primary}/>
             Não tenho cadastro
           </BackLink>
         </form>

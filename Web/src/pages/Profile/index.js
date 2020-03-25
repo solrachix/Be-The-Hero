@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { ThemeContext } from 'styled-components';
 
 import api from '../../services/api';
 
@@ -11,6 +12,7 @@ import Button from '../../components/Button';
 import { Container, Header, List } from './styles';
 
 export default function Profile() {
+  const themeContext = useContext(ThemeContext).colors;
   const history = useHistory();
   const ongId = localStorage.getItem('ongId');
   const ongName = localStorage.getItem('ongName');
@@ -55,7 +57,7 @@ export default function Profile() {
           <Link to="/incidents/new">Cadastrar novo caso</Link>
         </Button>
         <button onClick={handleLogout} className="button" type="button">
-          <FiPower size={18} color="#e02041" />
+          <FiPower size={18} color={themeContext.primary} />
         </button>
       </Header>
 
@@ -76,7 +78,7 @@ export default function Profile() {
                 <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(incident.value)}</p>
 
                 <button type="button" onClick={()=> handleDeleteIncident(incident.id)}>
-                  <FiTrash2 size={20}  color="#a8a8b3"/>
+                  <FiTrash2 size={20}  color={themeContext.text} />
                 </button>
               </li>
             );

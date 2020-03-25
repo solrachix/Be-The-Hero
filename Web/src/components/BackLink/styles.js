@@ -5,7 +5,7 @@ export const Link = styled(RRD.Link)`
   display: flex;
   align-items: center;
   margin-top: 40px;
-  color: #41414d;
+  color: ${({ theme }) => theme.colors.text };
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;

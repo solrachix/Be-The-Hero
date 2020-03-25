@@ -4,7 +4,7 @@ import GlobalStyle from './styles/GlobalStyle';
 
 import Routes from './routes';
 
-import Light from './styles/themes/Light';
+import Light from './styles/themes/Dark';
 
 function App() {
   const [ theme, setTheme ] = useState(Light);
