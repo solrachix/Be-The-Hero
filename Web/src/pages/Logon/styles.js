@@ -16,8 +16,6 @@ export const Container = styled.div`
     width: 100%;
     max-width: 350px;
     margin-right: 30px;
-
-    box-shadow: ${({ theme }) => theme.title == 'Dark' ? `0 0 50px ${darken(0.1, theme.colors.secundary)}` : null };
   }
   section.form form {
     margin-top: 100px;
@@ -39,6 +37,7 @@ export const Container = styled.div`
       align-items: center;
       justify-content: center;
 
+      box-shadow: ${({ theme }) => theme.title == 'Dark' ? `0 0 50px ${darken(0.1, theme.colors.secundary)}` : null };
       background: ${({ theme }) => rgba(theme.colors.secundary, 0.5) };
       border-radius: 15px;
     }
