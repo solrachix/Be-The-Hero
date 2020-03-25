@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
 
-import Logon from './pages/Logon';
+import Routes from './routes';
 
 import Light from './styles/themes/Light';
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Logon />
+      <Routes />
     </ThemeProvider>
   );
 }

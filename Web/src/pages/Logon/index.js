@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import heroesImg from '../../assets/heroes.png';
 import logoImg from '../../assets/logo.svg';
@@ -20,10 +21,10 @@ export default function Logon() {
           <Input placeholder="Sua Id"/>
           <Button type="submit">Entrar</Button>
 
-          <a href="/register">
+          <Link to="/register">
             <LogIn size={16} color="#e02041"/>
             Não tenho cadastro
-          </a>
+          </Link>
         </form>
       </section>
 
