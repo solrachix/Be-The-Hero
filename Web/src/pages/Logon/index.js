@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import heroesImg from '../../assets/heroes.png';
 import logoImg from '../../assets/logo.svg';
 
+import BackLink from '../../components/BackLink';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
-
 import { Container, LogIn } from './styles';
 
 export default function Logon() {
@@ -21,10 +21,10 @@ export default function Logon() {
           <Input placeholder="Sua Id"/>
           <Button type="submit">Entrar</Button>
 
-          <Link to="/register">
+          <BackLink to="/register">
             <LogIn size={16} color="#e02041"/>
             Não tenho cadastro
-          </Link>
+          </BackLink>
         </form>
       </section>
 

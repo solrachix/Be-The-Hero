@@ -14,6 +14,10 @@ export default createGlobalStyle`
     background: #f0f0f5;
     -webkit-font-smoothing: antialiased;
   }
+  a{
+    text-decoration: none;
+    color: #fff;
+  }
   input, button, textarea{
     font: 400 18px Roboto, sans-serif;
   }
