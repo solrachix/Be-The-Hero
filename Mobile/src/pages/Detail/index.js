@@ -1,6 +1,6 @@
 import React from 'react';
 import { Linking } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import * as MailComposer from 'expo-mail-composer'
 
 import { Feather } from '@expo/vector-icons';
@@ -13,7 +13,10 @@ import { Container, Header, Image, Incident, Text, Title, BoldText, Value, Conta
 
 export default function Detail() {
   const navigation = useNavigation();
-  const message = "Olá APAD, estou entrando em contato pois gostaria de ajudar no caso 'Cadelinha' com o valor de R$ 120,00 "
+  const route = useRoute();
+
+  const incident = route.params.incident;
+  const message = `Olá ${incident.Name}, estou entrando em contato pois gostaria de ajudar no caso '${incident.title}' com o valor de ${ Intl.NumberFormat('pt-BR', {     style: 'currency', currency: 'BRL'}).format(incident.value)} `;
 
   function navigateBack(){
     navigation.goBack();
@@ -21,14 +24,14 @@ export default function Detail() {
 
   function sendMail(){
     MailComposer.composeAsync({
-      subject: "Herói do caso: aaa",
-      recipients: ['carlos.miguel.oliveira.17@gmail.com'],
+      subject: `Herói do caso: ${incident.title}`,
+      recipients: [incident.email],
       body: message
     })
   }
 
   function sendWhatsapp(){
-    Linking.openURL(`whatsapp://send?phone=5511963938763&text=${message}`);
+    Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`);
   }
 
   return (
@@ -43,13 +46,24 @@ export default function Detail() {
 
       <Incident>
         <Text style={{ marginTop: 0 }}><BoldText>ONG: </BoldText></Text>
-        <Value>APAD</Value>
+        <Value>{incident.Name} de {incident.city}/{incident.uf}</Value>
 
         <Text><BoldText>CASO: </BoldText></Text>
-        <Value>cadelinha atropelada</Value>
+        <Value>{incident.title}</Value>
+
+        <Text><BoldText>DESCRIÇÃO: </BoldText></Text>
+        <Value>{incident.description}</Value>
 
         <Text><BoldText>VALOR: </BoldText></Text>
-        <Value>R$ 120</Value>
+        <Value>
+          {
+            Intl
+              .NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+              }).format(incident.value)
+          }
+        </Value>
       </Incident>
 
       <ContactBox>

@@ -1,3 +1,6 @@
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
+
 import React from 'react';
 import { AppRegistry, StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
