@@ -1,19 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, StatusBar } from 'react-native';
+import { ThemeProvider } from 'styled-components';
+
+import Routes from './src/routes';
+import {name as appName} from './app.json';
+
+import Light from './src/styles/themes/Light';
 
 export default function App() {
+  // const [theme, setTheme] = usePersistedState('theme', Light);
+  const theme = Light;
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <ThemeProvider theme={theme}>
+      <StatusBar hidden />
+      <Routes theme={theme} /> 
+    </ThemeProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+console.disableYellowBox = false
+
+AppRegistry.registerComponent(appName, () => App);
