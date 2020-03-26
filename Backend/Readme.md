@@ -71,6 +71,89 @@ O Backend foi desenvolvido pensando-se no conceito DRY (Don't Repeat Yourself) e
 	
 	E o [KnexJS](http://knexjs.org/ "KnexJS") foi utilizado para fazer a estruturação da tabela, consulta, e gravação de dados no Banco.
 
+ - ## Migrations
+	- ### Incidents
+		Este é o Migration da tabela Incidents
+
+		#### Estrutura
+		 - *\BeTheHero\Backend\src\database\migrations\20200324090729_create_incidents.js*
+
+		```js
+		exports.up = function(knex) {
+		  return knex.schema.createTable('incidents', function (table){
+			table.increments();
+
+			table.string('title').notNullable();
+			table.string('description').notNullable();
+			table.decimal('value').notNullable();
+
+			table.string('ong_id').notNullable();
+
+			table.foreign('ong_id').references('id').inTable('ongs');
+		  })
+		};
+
+		exports.down = function(knex) {
+		  return knex.schema.dropTable('incidents')
+		};
+		```
+
+	- ### Ongs
+		Este é o Migration da tabela Ongs
+
+		#### Estrutura
+		 - *\BeTheHero\Backend\src\database\migrations\20200324090729_create_ongs.js*
+
+		```js
+		exports.up = function(knex) {
+		  return knex.schema.createTable('ongs', function (table){
+			table.string('id').primary();
+			table.string('Name').notNullable();
+			table.string('email').notNullable();
+			table.string('whatsapp').notNullable();
+			table.string('city').notNullable();
+			table.string('uf', 2).notNullable();
+		  })
+		};
+
+		exports.down = function(knex) {
+		  return knex.schema.dropTable('ongs')
+		};
+		```
+
+- ## Controllers
+	Aqui estão listados os controles da API do DevRadar, seus métodos, parâmetros e estrutura.
+	- ### Ongs
+		As ongs são os usuários do programa.
+		
+		| Método | Estrutura | Ação | Parâmetros | Retorno |
+		|--|--|--|--|--|
+		| GET | `/ongs` | Lista todas as ongs cadastrados | **Nenhum** | JSON/Ongs |
+		| POST | `/ongs` | Cadastra uma ong no banco de dados | JSON/name,email,whatsapp,city,uf | JSON/Id |
+
+	- ###  Incidents
+		Os Incidents são os casos registrados pelas ongs.
+
+		| Método | Estrutura | Ação | Parâmetros | Retorno |
+		| ------ | ------ | ------ | ------ | ------ |
+		| GET | `/incidents` | Lista todos os incidents cadastrados   | **Nenhum** | JSON/Incident |
+		| POST | `/incidents` | Cadastra um incident no banco de dados | Body: JSON/title,description,value -- Headers: authorization| JSON/Id |
+		| DELETE | `/incidents/:id` | Deleta um incident | Rota                | 200 OK        |
+
+	- ###  Profile
+		Este controlador lista todos os incedents de uma ong.
+
+		| Método | Estrutura | Ação | Parâmetros | Retorno |
+		| ------ | ------ | ------ | ------ | ------ |
+		| GET | `/api/search` | Lista os incedents | Header/Authorization | JSON/Incedents |
+
+	- ###  Session
+		Altentica uma Ong para o login.
+
+		| Método | Estrutura | Ação | Parâmetros | Retorno |
+		| ------ | ------ | ------ | ------ | ------ |
+		| GET | `/session` | Autentica | Body/Id| JSON/Name |
+
 
 # Usar:
   Para instalar as dependências e executar o **Servidor** (modo desenvolvimento), clone o projeto em seu computador e em seguida execute:
@@ -79,88 +162,6 @@ O Backend foi desenvolvido pensando-se no conceito DRY (Don't Repeat Yourself) e
     yarn install
     yarn start
   ```
- # Migrations
-- ### Incidents
-	Este é o Migration da tabela Incidents
-
-	#### Estrutura
-	 - *\BeTheHero\Backend\src\database\migrations\20200324090729_create_incidents.js*
-
-	```js
-	exports.up = function(knex) {
-	  return knex.schema.createTable('incidents', function (table){
-		table.increments();
-
-		table.string('title').notNullable();
-		table.string('description').notNullable();
-		table.decimal('value').notNullable();
-
-		table.string('ong_id').notNullable();
-
-		table.foreign('ong_id').references('id').inTable('ongs');
-	  })
-	};
-
-	exports.down = function(knex) {
-	  return knex.schema.dropTable('incidents')
-	};
-	```
-
-- ### Ongs
-	Este é o Migration da tabela Ongs
-
-	#### Estrutura
-	 - *\BeTheHero\Backend\src\database\migrations\20200324090729_create_ongs.js*
-
-	```js
-	exports.up = function(knex) {
-	  return knex.schema.createTable('ongs', function (table){
-		table.string('id').primary();
-		table.string('Name').notNullable();
-		table.string('email').notNullable();
-		table.string('whatsapp').notNullable();
-		table.string('city').notNullable();
-		table.string('uf', 2).notNullable();
-	  })
-	};
-
-	exports.down = function(knex) {
-	  return knex.schema.dropTable('ongs')
-	};
-	```
-
-# Controllers
-Aqui estão listados os controles da API do DevRadar, seus métodos, parâmetros e estrutura.
-- ## Ongs
-	As ongs são os usuários do programa.
-	| Método | Estrutura | Ação | Parâmetros | Retorno |
-	|--|--|--|--|--|
-	| GET | `/ongs` | Lista todas as ongs cadastrados | **Nenhum** | JSON/Ongs |
-	| POST | `/ongs` | Cadastra uma ong no banco de dados | JSON/name,email,whatsapp,city,uf | JSON/Id |
-
-- ## Incidents
-	Os Incidents são os casos registrados pelas ongs.
-
-| Método | Estrutura | Ação | Parâmetros | Retorno |
-| ------ | ------ | ------ | ------ | ------ |
-| GET | `/incidents` | Lista todos os incidents cadastrados   | **Nenhum** | JSON/Incident |
-| POST | `/incidents` | Cadastra um incident no banco de dados | Body: JSON/title,description,value -- Headers: authorization| JSON/Id |
-| DELETE | `/incidents/:id` | Deleta um incident | Rota                | 200 OK        |
-
-- ## Profile
-Este controlador lista todos os incedents de uma ong.
-
-| Método | Estrutura | Ação | Parâmetros | Retorno |
-| ------ | ------ | ------ | ------ | ------ |
-| GET | `/api/search` | Lista os incedents | Header/Authorization | JSON/Incedents |
-
-- ## Session
-Altentica uma Ong para o login.
-
-| Método | Estrutura | Ação | Parâmetros | Retorno |
-| ------ | ------ | ------ | ------ | ------ |
-| GET | `/session` | Autentica | Body/Id| JSON/Name|
-
 
 ## Licença
 
