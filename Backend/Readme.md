@@ -1,3 +1,4 @@
+
 # Visão Geral
 <p align="justify">
   <a aria-label="Versão do Node" href="https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V12.md#12.14.1">
@@ -130,177 +131,35 @@ O Backend foi desenvolvido pensando-se no conceito DRY (Don't Repeat Yourself) e
 
 # Controllers
 Aqui estão listados os controles da API do DevRadar, seus métodos, parâmetros e estrutura.
+- ## Ongs
+	As ongs são os usuários do programa.
+	| Método | Estrutura | Ação | Parâmetros | Retorno |
+	|--|--|--|--|--|
+	| GET | `/ongs` | Lista todas as ongs cadastrados | **Nenhum** | JSON/Ongs |
+	| POST | `/ongs` | Cadastra uma ong no banco de dados | JSON/name,email,whatsapp,city,uf | JSON/Id |
 
-## Devs
-Os Devs são os usuários do programa.
+- ## Incidents
+	Os Incidents são os casos registrados pelas ongs.
 
-| Método       | Estrutura           | Ação                                  | Parâmetros          | Retorno       |
-| ------------ | ------------------- | ------------------------------------- | ------------------- | ------------- |
-| ![GET][1]    | `/api/listdevs`         | Lista todos os usuários cadastrados   | **Nenhum**          | JSON/Usuários |
-| ![POST][2]   | `/api/devs`         | Cadastra um usuário no banco de dados | JSON/git,techs,geo  | JSON/Usuário  |
-| ![PUT][3]    | `/api/devs/:github` | Edita dados do usuário                | Rota + JSON/campos  | JSON/Qnt,ok   |
-| ![DELETE][4] | `/api/devs/:github` | Deleta um usuário                     | Rota                | 200 OK        |
+| Método | Estrutura | Ação | Parâmetros | Retorno |
+| ------ | ------ | ------ | ------ | ------ |
+| GET | `/incidents` | Lista todos os incidents cadastrados   | **Nenhum** | JSON/Incident |
+| POST | `/incidents` | Cadastra um incident no banco de dados | Body: JSON/title,description,value -- Headers: authorization| JSON/Id |
+| DELETE | `/incidents/:id` | Deleta um incident | Rota                | 200 OK        |
 
-## Search
-Este controlador serve para listar usuários porém em modo de pesquisa.  
-Com este módulo é possível procurar por usuários em um raio de **10km** e com techs(Tecnologias) específicas.
+- ## Profile
+Este controlador lista todos os incedents de uma ong.
 
-| Método       | Estrutura     | Ação              | Parâmetros                     | Retorno       |
-| ------------ | ------------- | ----------------- | ------------------------------ | ------------- |
-| ![GET][5]    | `/api/search` | Pesquisa usuários | Query/techs,latitude,longitude | JSON/Usuários |
+| Método | Estrutura | Ação | Parâmetros | Retorno |
+| ------ | ------ | ------ | ------ | ------ |
+| GET | `/api/search` | Lista os incedents | Header/Authorization | JSON/Incedents |
 
+- ## Session
+Altentica uma Ong para o login.
 
-# Exemplos
-## Index
-```http
-GET /api/devs HTTP/1.1
-```
-<details>
-<summary><code>HTTP/1.1 200 OK</code></summary>
-
-```json
-{
-    "devs": [
-        {
-          "techs": [
-            "React",
-            "React Native",
-            "NodeJS"
-          ],
-          "_id": "5e1fa978baa16a67e2bfe330",
-          "github_username": "solrachix",
-          "name": "Carlos Miguel",
-          "avatar_url": "https://avatars2.githubusercontent.com/u/57706806?v=4",
-          "bio": null,
-          "location": {
-            "coordinates": [
-              -46.9396393,
-              -23.3269011
-            ],
-            "_id": "5e1fa978baa16a67e2bfe331",
-            "type": "Point"
-          },
-          "__v": 0
-        },
-        ...
-    ]
-}
-```
-</details>
-
-------------------------------------------------------------------------------------------------------------------------
-
-## Create
-```http
-POST /api/devs HTTP/1.1
-```
-<details>
-<summary><code>HTTP/1.1 200 OK</code></summary>
-
-```json
-{
-    "techs": [
-        "Java",
-        "ReactJS",
-        "Node.js"
-    ],
-    "_id": "5e1dedc2ba895700505a1b5a",
-    "github": "MateusAquino",
-    "name": "Mateus",
-    "avatar_url": "https://avatars1.githubusercontent.com/u/16140783?v=4",
-    "bio": "I'm a Student and a Java enthusiast. Started programming around 10 years old.",
-    "location": {
-        "coordinates": [
-            -45.8870291,
-            -23.2480525
-        ],
-        "_id": "5e1dedc2ba895700505a1b5b",
-        "type": "Point"
-    },
-    "__v": 0
-}
-```
-</details>
-
-------------------------------------------------------------------------------------------------------------------------
-
-## Update
-```http
-PUT /api/devs/MateusAquino HTTP/1.1
-
-{
-  "techs": "Java, React, Node.js, CSS",
-  "github": "este_campo_nao_deve_fazer_nenhuma_alteracao_no_user"
-}
-```
-<details>
-<summary><code>HTTP/1.1 200 OK</code></summary>
-
-```json
-{
-    "modifiedCount": 1,
-    "ok": 1
-}
-```
-</details>
-
-
-------------------------------------------------------------------------------------------------------------------------
-
-## Delete
-```http
-DELETE /api/devs/MateusAquino HTTP/1.1
-```
-<details>
-<summary><code>HTTP/1.1 200 OK</code></summary></details>
-
-
-
-------------------------------------------------------------------------------------------------------------------------
-
-## Search
-```http
-GET /api/search?techs=ReactJS,Node.JS&latitude=-23.2480525&longitude=-45.8870291 HTTP/1.1
-```
-<details>
-<summary><code>HTTP/1.1 200 OK</code></summary>
-
-```json
-{
-    "devs": [
-        {
-          "techs": [
-              "React",
-              "React Native",
-              "NodeJS"
-            ],
-            "_id": "5e1fa978baa16a67e2bfe330",
-            "github_username": "solrachix",
-            "name": "Carlos Miguel",
-            "avatar_url": "https://avatars2.githubusercontent.com/u/57706806?v=4",
-            "bio": null,
-            "location": {
-              "coordinates": [
-                -46.9396393,
-                -23.3269011
-              ],
-              "_id": "5e1fa978baa16a67e2bfe331",
-              "type": "Point"
-            },
-            "__v": 0
-        },
-        ...
-    ]
-}
-```
-</details>
-
-[1]: #index
-[2]: #create
-[3]: #update
-[4]: #delete
-[5]: #search
-
+| Método | Estrutura | Ação | Parâmetros | Retorno |
+| ------ | ------ | ------ | ------ | ------ |
+| GET | `/session` | Autentica | Body/Id| JSON/Name|
 
 
 ## Licença
