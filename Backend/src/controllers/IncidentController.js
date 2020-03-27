@@ -42,7 +42,7 @@ module.exports = {
 
     const incident = await connection('incidents')
       .where('id', id)
-      .select('ong_id')
+      .select('*')
       .first();
 
     if (incident.ong_id !== ong_id) {
@@ -50,7 +50,8 @@ module.exports = {
     }
 
     await connection('incidents').where('id', id).delete();
-
-    return responce.status(204).send();
+    
+    // return responce.status(204).send();
+    return responce.json(incident);
   },
 }

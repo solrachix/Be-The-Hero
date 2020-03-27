@@ -4,6 +4,7 @@ import api from '../../services/api';
 
 import logo from '../../assets/logo.svg';
 
+import Alert from '../../components/Alert';
 import BackLink from '../../components/BackLink';
 import Button from '../../components/Button';
 import Input, { Textarea } from '../../components/Input';
@@ -24,16 +25,25 @@ export default function NewIncident() {
       description,
       value
     }
-    alert(ongId)
     try {
       await api.post('/incidents', data, {
         headers: {
           Authorization: ongId
         }
-      })
+      });
+
+      Alert({
+        type: 'success',
+        title: 'Sucesso',
+        content: 'Incidente criado com sucesso!'
+      });
+
       history.push('/profile')
     } catch (error) {
-      alert('Erro, tente novamente mais tarde!')
+      Alert({
+        title: 'Error',
+        content: 'Erro no cadastro tente novamente mais tarde!'
+      });
     }
   }
   return (

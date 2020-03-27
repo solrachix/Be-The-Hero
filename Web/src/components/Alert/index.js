@@ -1,33 +1,21 @@
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import ButterToast, { Cinnamon } from 'butter-toast';
 
-// Call it once in your app. At the root of your app is the best place
-toast.configure({
-  position: "top-right",
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-})
-
-
-// import { Container } from './styles';
-
-const Alert = ({ 
-  type = null,
-  position = "top_end",
-  message = "Notification"
-}) => {
-
-  toast(message, {
-    type: type,
-    position: toast.POSITION[position],
+const Alert = ({ type = 'error', ...props }) => {
+  const scheme = 
+    type == 'success' ? Cinnamon.Crisp.SCHEME_BLUE
+    : type == 'error' ? Cinnamon.Crisp.SCHEME_RED
+      : type == 'warn' ? Cinnamon.Crisp.SCHEME_ORAGE 
+        : null ;
+  ButterToast.raise({
+    content: (
+      <Cinnamon.Crisp scheme={scheme}
+        content={() => <div>You can put basically anything here.</div>}
+        // title="ButterToast example"
+        { ...props }
+      />
+      )
   });
-
-  // return (
-  // );
-}
+};
 
 export default Alert;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ButterToast, { POS_TOP, POS_RIGHT } from 'butter-toast';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
 
@@ -12,6 +13,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <SetTheme setTheme={setTheme}/>
+      <ButterToast position={{vertical: POS_TOP, horizontal: POS_RIGHT}}/>
       <GlobalStyle />
       <Routes />
     </ThemeProvider>

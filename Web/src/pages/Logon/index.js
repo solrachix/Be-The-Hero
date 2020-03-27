@@ -30,8 +30,8 @@ export default function Logon() {
       history.push('/profile')
     } catch (error) {
       Alert({
-        type: 'error',
-        message: 'Falha no login, Tente novamente!'
+        title: 'error',
+        content: 'Falha no login, Tente novamente!'
       });
     }
   }

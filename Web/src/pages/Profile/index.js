@@ -8,6 +8,7 @@ import { FiPower, FiTrash2 } from 'react-icons/fi';
 
 import logoImg from '../../assets/logo.svg';
 
+import Alert from '../../components/Alert';
 import Button from '../../components/Button';
 import { Container, Header, List } from './styles';
 
@@ -19,6 +20,11 @@ export default function Profile() {
   const [ incidents, setIncidents ] = useState([]);
 
   useEffect(()=>{
+    console.log(incidents)
+  }, [incidents]);
+
+
+  useEffect(()=>{
     api.get('profile', {
       headers: {
         Authorization: ongId,
@@ -28,17 +34,33 @@ export default function Profile() {
     })
   }, [ongId]);
 
-  async function handleDeleteIncident(id){
+  async function handleDeleteIncident(item){
     try {
-      await api.delete(`incidents/${id}`, {
+      const responce = await api.delete(`incidents/${item.id}`, {
         headers: {
           Authorization: ongId,
         }
       })
 
-      setIncidents(incidents.filter(incident => incident.id !== id))
+      await setIncidents(incidents.filter(incident => {
+        return incident.id != item.id
+      }));
+
+      Alert({
+        type: 'success',
+        title: 'Sucesso',
+        // onClick: ({ dismiss }) => { dismiss() },
+        content: (
+          <p onClick={() => handleRecuperationIncidents(item) } style={{cursor: 'pointer'}}>
+            Incidente excluído com sucesso, <b>clique para restaurar!</b>
+          </p>
+        )
+      });
     } catch (error) {
-      alert('Error ao deletar caso, tente novamente.');
+      Alert({
+        title: 'Error',
+        content: 'Erro ao deletar, tente novamente mais tarde!'
+      });
     }
   }
 
@@ -46,6 +68,30 @@ export default function Profile() {
     localStorage.clear();
 
     history.push('/');
+  }
+
+  async function handleRecuperationIncidents(data){
+
+    try {
+      const responce = await api.post('/incidents', data, {
+        headers: {
+          Authorization: ongId
+        }
+      });
+      await setIncidents(incidents);
+
+      Alert({
+        type: 'success',
+        title: 'Sucesso',
+        content: 'Incidente restaurado com sucesso!'
+      });
+
+    } catch (error) {
+      Alert({
+        title: 'Error',
+        content: `Erro: ${error}, no restauramento do Incident, tente novamente mais tarde!`
+      });
+    }
   }
   return (
     <Container>
@@ -77,7 +123,7 @@ export default function Profile() {
                 <strong>VALOR: </strong>
                 <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(incident.value)}</p>
 
-                <button type="button" onClick={()=> handleDeleteIncident(incident.id)}>
+                <button type="button" onClick={()=> handleDeleteIncident(incident)}>
                   <FiTrash2 size={20}  color={themeContext.text} />
                 </button>
               </li>

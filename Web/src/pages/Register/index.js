@@ -6,6 +6,7 @@ import api from '../../services/api';
 
 import logo from '../../assets/logo.svg';
 
+import Alert from '../../components/Alert';
 import BackLink from '../../components/BackLink';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -34,11 +35,18 @@ export default function Register() {
 
     try {      
       const responce = await api.post('ongs', data)
-      alert(`Seu Id de acesso: ${responce.data.id}`);
+      Alert({
+        type: 'success',
+        title: 'Sucesso',
+        content: `Seu Id de acesso: ${responce.data.id}`
+      });
 
       history.push('/')
     } catch (error) {
-      alert('Erro no cadastro tente novamente mais tarde!')
+      Alert({
+        title: 'Error',
+        content: 'Erro no cadastro tente novamente mais tarde!'
+      });
     }
   }
 
