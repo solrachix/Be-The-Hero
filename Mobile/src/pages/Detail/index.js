@@ -37,11 +37,11 @@ export default function Detail() {
   return (
     <Container>
       <Header>
-        <Image source={logoImg} />
-
         <SimpleButton onPress={navigateBack}>
           <Feather name="arrow-left" size={28} color="#e02041"/>
         </SimpleButton>
+
+        <Image source={logoImg} />
       </Header>
 
       <Incident>

@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 export const Container = styled.View`
   flex: 1;
   padding: 0 24px;
-  padding-top: 44px;
+  padding-top: ${Constants.statusBarHeight + 20}px;
 `;/* Constants.statusBarHeight + 20 */
 
 export const Header = styled.View`
@@ -19,13 +19,13 @@ export const Image = styled.Image`
 
 export const Text = styled.Text`
   font-size: 15px;
-  color: #737388;
+  color: ${({ theme }) => theme.colors.border};
 `;
 
 export const Description = styled.Text`
   font-size: 16px;
   line-height: 24px;
-  color: #737388;
+  color: ${({ theme }) => theme.colors.border};
 `;
 
 export const Title = styled.Text`
@@ -34,14 +34,13 @@ export const Title = styled.Text`
   margin-bottom: 16px;
   margin-top: 48px;
 
-  color: #13131a;
+  color: ${({ theme }) => theme.colors.text};
   font-weight: bold;
 `;
 
 export const BoldText = styled.Text`
   font-weight: bold;
 `;
-
 
 export const IncidentsList = styled.FlatList`
   margin-top: 32px;
@@ -52,7 +51,7 @@ export const Incident = styled.View`
   padding: 24px;
 
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.secundary};
 `;
 
 export const Value = styled.Text`
@@ -60,5 +59,5 @@ export const Value = styled.Text`
   margin-bottom: 24px;
 
   font-size: 16px;
-  color: #737388;
+  color: ${({ theme }) => theme.colors.border};
 `;

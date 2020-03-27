@@ -1,14 +1,12 @@
 export default {
   title: 'Light',
-
+  dark: false,
   colors: {
-    primary: '#e02041',
-    secundary: '#f0f0f5',
-    tertiary: '#737388',
-    quarterly: '#dcdce6',
-
-    background: '#101010',
+    primary: '#e02041',    
+    secundary: '#fff',
+    background: '#F0F0F5',
+    card: '#F0F0F5',
     text: '#333',
-    placeholder: '#959698',
+    border: '#333',
   }
 };

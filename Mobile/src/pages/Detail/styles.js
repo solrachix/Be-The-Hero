@@ -4,8 +4,9 @@ import * as B from '../../components/Button';
 
 export const Container = styled.View`
   flex: 1;
+  width: 94%;
   padding-left: 24px;
-  padding-top: 44px;
+  padding-top: ${Constants.statusBarHeight + 20}px;
 `;/* Constants.statusBarHeight + 20 */
 
 export const Header = styled.View`
@@ -24,22 +25,22 @@ export const Incident = styled.View`
   padding: 24px;
 
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.secundary};
 `;
 
 export const Text = styled.Text`
   margin-top: 24px;
   font-size: 15px;
-  color: #737388;
+  color: ${({ theme }) => theme.colors.border};
 `;
 
 export const Title = styled.Text`
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 900;
 
   line-height: 30px;
 
-  color: #13131a;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const BoldText = styled.Text`
@@ -50,7 +51,7 @@ export const Value = styled.Text`
   margin-top: 8px;
 
   font-size: 16px;
-  color: #737388;
+  color: ${({ theme }) => theme.colors.border};
 `;
 
 export const ContactBox = styled.View`
@@ -58,7 +59,7 @@ export const ContactBox = styled.View`
   padding: 24px;
 
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.secundary};
 `;
 
 export const Actions = styled.View`
@@ -69,7 +70,7 @@ export const Actions = styled.View`
 `;
 
 export const ButtonText = styled(B.ButtonText)`
-  color: #fff;
+  color: #ddd;
   font-size: 15px;
   font-weight: bold;
 `;
