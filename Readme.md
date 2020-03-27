@@ -112,7 +112,7 @@
 	* **expo-constants**:  ~8.0.0
 	* **expo-mail-composer**:  ~8.0.0
 	* **intl**:  ^1.2.5
-	- #### React navigation
+	- #### React
 		* **react**:  ~16.9.0
 		* **react-dom**:  ~16.9.0
 		* **react-native**:  https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz

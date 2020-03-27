@@ -1,68 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+    <img alt="Be the Hero" src="https://github.com/solrachix/be-the-hero/blob/master/assets/web.png?raw=true"  width="800px" style="border-radius:16px;"/>
+</h1>
 
-## Available Scripts
+<h3 align="center" >
+  An application where you can be the hero and save the world, but not by the conventional way, but by helping some NGOs to raise funds for their causes
+</h3>
 
-In the project directory, you can run:
+<p align="center">
+  <img alt="Languagues" src="https://img.shields.io/github/languages/count/solrachix/be-the-hero">
+  <img alt="Top Languague" src="https://img.shields.io/github/languages/top/solrachix/be-the-hero">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/solrachix/be-the-hero">
+  <a href="https://github.com/solrachix/be-the-hero/commits/master">
+    <img alt="Last commit date" src="https://img.shields.io/github/last-commit/solrachix/be-the-hero">
+  </a>
+   <a href="https://github.com/solrachix/be-the-hero/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/solrachix/be-the-hero">
+  </a>
+  <img alt="License" src="https://img.shields.io/github/license/solrachix/be-the-hero">
+</p>
+<p align="center">
 
-### `yarn start`
+  <a href="https://github.com/solrachix" target="_blank">
+    <img alt="Made by Carlos Miguel" src="https://img.shields.io/badge/made%20by-Carlos_Miguel-informational">
+  </a>
+  <a href="https://github.com/solrachix" target="_blank" >
+    <img alt="Github - Carlos Miguel" src="https://img.shields.io/badge/Github--%23F8952D?style=social&logo=github">
+  </a>
+  <a href="https://www.linkedin.com/in/carlos-miguel-alves-de-oliveira-380413197/" target="_blank" >
+    <img alt="Linkedin - Carlos Miguel" src="https://img.shields.io/badge/Linkedin--%23F8952D?style=social&logo=linkedin">
+  </a>
+  <a href="mailto:carlos.miguel.oliveira.17@gmail.com" target="_blank" >
+    <img alt="Email - Carlos Miguel" src="https://img.shields.io/badge/Email--%23F8952D?style=social&logo=gmail">
+  </a>
+  <a href="https://api.whatsapp.com/send?phone=5511969027401"
+        target="_blank" >
+    <img alt="Fale comigo no whatsapp - Carlos Miguel" src="https://img.shields.io/badge/Whatsapp--%23F8952D?style=social&logo=whatsapp">
+  </a>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+</p>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<p align="center">
+  <a href="#computer-languages">Languages</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#books-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">License</a>
+</p>
 
-### `yarn test`
+<p align="justify">
+	
+</p>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Modifications
 
-### `yarn build`
+1. When the user is logged in and accesses the login, he will be redirected to profile again
+2. If the user is not logged in and accesses the ‘profile’ route he will be redirected to the home screen
+5. Dark Theme and Light Theme
+6. Responsive frontend
+7. Custom alerts
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## :computer: Languages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Javascript**
+- **HTML (how components react)**
+- **CSS IN JS**
 
-### `yarn eject`
+## :books: Technologies
+* **@testing-library/jest-dom**:  ^4.2.4
+* **@testing-library/react**:  ^9.3.2
+* **@testing-library/user-event**:  ^7.1.2
+* **axios**:  ^0.19.2
+* **polished**:  ^3.5.1
+* **react**:  ^16.13.1
+* **react-dom**:  ^16.13.1
+* **react-icons**:  ^3.9.0
+* **react-router-dom**:  ^5.1.2
+* **react-scripts**:  3.4.1",
+* **react-toastify**:  ^5.5.0
+* **styled-components**:  ^5.0.1
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :memo: License
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is under MIT. See at here [LICENSE](/LICENSE) for more informations.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Made by :blue_heart: by [Carlos Miguel](https://github.com/solrachix)
