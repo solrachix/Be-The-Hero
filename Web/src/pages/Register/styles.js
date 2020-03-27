@@ -11,10 +11,11 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
 `;
 
 export const Content = styled.div`
-  width: 100%;
+  width: 98%;
   padding: 96px;
   background: ${({ theme }) => theme.colors.secundary };
   box-shadow: 0 0 100px ${({ theme }) => darken(0.1, theme.colors.secundary) };
@@ -51,6 +52,19 @@ export const Content = styled.div`
   }
   form .input-group input + input{
     margin-left: 8px;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20%;
+    .button {
+      margin-top: 5%;
+    }
+    .link {
+      margin-left: 0px;
+    }
   }
 `;
 
