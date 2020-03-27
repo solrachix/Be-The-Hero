@@ -19,7 +19,6 @@
     "knex": "^0.20.13",
     "nodemailer": "^6.4.6",
     "nodemailer-express-handlebars": "^4.0.0",
-    "nodemailer-smtp-transport": "^2.7.4",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
