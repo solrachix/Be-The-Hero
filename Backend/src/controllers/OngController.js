@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 
 const connection = require('../database/connection');
+const Mail = require('./MailController');
 
 // Gerar novo ID
 function genareteId() {
@@ -31,17 +32,26 @@ module.exports = {
   async create(request, responce) {
     const { name, email, whatsapp, city, uf } = request.body;
   
-    const id = await genareteId()
+    const id = await genareteId();
   
-    await connection('ongs').insert({
+    // await connection('ongs').insert({
+    //   id,
+    //   name,
+    //   email,
+    //   whatsapp,
+    //   city,
+    //   uf
+    // });
+    
+    Mail.Send({
       id,
       name,
       email,
       whatsapp,
       city,
       uf
-    });
-  
+    });    
+
     return responce.json({ id });
   },
 }
