@@ -2,7 +2,6 @@
 const 
   path = require('path'),
   nodemailer = require("nodemailer"),
-  smtpTransport = require('nodemailer-smtp-transport'),
   hbs = require('nodemailer-express-handlebars');
 
 module.exports = {

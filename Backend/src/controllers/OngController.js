@@ -33,14 +33,14 @@ module.exports = {
   
     const id = await genareteId();
   
-    // await connection('ongs').insert({
-    //   id,
-    //   name,
-    //   email,
-    //   whatsapp,
-    //   city,
-    //   uf
-    // });
+    await connection('ongs').insert({
+      id,
+      name,
+      email,
+      whatsapp,
+      city,
+      uf
+    });
     
     Mail.Send({
       id,
