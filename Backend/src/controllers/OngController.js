@@ -2,11 +2,10 @@ const crypto = require('crypto');
 
 const connection = require('../database/connection');
 const Mail = require('./MailController');
-
+const generateUniqueId = require('../utils/generateUniqueId');
 // Gerar novo ID
 function genareteId() {
-  const id = crypto.randomBytes(4).toString('HEX')
-  return checkId(id)
+  return checkId(generateUniqueId())
 }
 
 async function checkId(id) {
