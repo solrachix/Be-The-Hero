@@ -59,7 +59,6 @@
 6. Responsive frontend
 7. Custom alerts
 
-
 ## :computer: Languages
 
 - **Javascript**
@@ -82,8 +81,6 @@
 	* **sqlite3**:  ^4.1.1
 
 
-
-	* 
 - ### Web
 	* **@testing-library/jest-dom**:  ^4.2.4
 	* **@testing-library/react**:  ^9.3.2
@@ -97,7 +94,6 @@
 	* **react-scripts**:  3.4.1",
 	* **react-toastify**:  ^5.5.0
 	* **styled-components**:  ^5.0.1
-
 
 - ### Mobile
 	- #### React navigation
