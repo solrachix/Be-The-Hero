@@ -1,5 +1,3 @@
-
-
 <h1 align="center">
     <img alt="Be the Hero" src="https://github.com/solrachix/be-the-hero/blob/master/assets/Template.png?raw=true"  width="800px" style="border-radius:16px;"/>
 </h1>
@@ -48,18 +46,18 @@
 </p>
 
 <p align="justify">
-	asdad
+	Go inside the folders to find out more ... you can go there, there is a beautiful README inside each one.
 </p>
 
 ## Modificações
 
-1.  Quando o usuário estiver logado e acessar o logon, ele será redirecionado para profile novamente
-2.  Se a usuário não estiver logado e acessar a rota ‘profile’ ele será redirecionado para e tela inicial
-3. Envia Email para a ONG com o ID de autenticação após o cadastrado da mesma
-4.  Bug de id repetido consertado (antes tinha possibilidade de gerar dois ids iguais)
-5.  Dark Theme e Light Theme, tanto na Web quanto no Mobile
-6.  Frontend responsivo
-7. Alertas personalizados
+1. When the user is logged in and accesses the login, he will be redirected to profile again
+2. If the user is not logged in and accesses the ‘profile’ route he will be redirected to the home screen
+3. Send Email to the NGO with the authentication ID after registering the same
+4. Fixed id bug fixed (previously it was possible to generate two identical ids)
+5. Dark Theme and Light Theme, both on the Web and Mobile
+6. Responsive frontend
+7. Custom alerts
 
 
 ## :computer: Languages
