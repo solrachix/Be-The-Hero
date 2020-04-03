@@ -26,7 +26,7 @@
   <a href="https://github.com/solrachix" target="_blank" >
     <img alt="Github - Carlos Miguel" src="https://img.shields.io/badge/Github--%23F8952D?style=social&logo=github">
   </a>
-  <a href="https://www.linkedin.com/in/carlos-miguel-alves-de-oliveira-380413197/" target="_blank" >
+  <a href="https://www.linkedin.com/in/carlos-miguel-380413197/" target="_blank" >
     <img alt="Linkedin - Carlos Miguel" src="https://img.shields.io/badge/Linkedin--%23F8952D?style=social&logo=linkedin">
   </a>
   <a href="mailto:carlos.miguel.oliveira.17@gmail.com" target="_blank" >
