@@ -5,5 +5,5 @@
 
   Backend: './Backend',
   Web: './Web',
-  Mobile: './Mobile',
+  Mobile: './Mobile'
 }
