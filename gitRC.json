@@ -1,0 +1,7 @@
+{
+  "type": "FullStack-Application",
+
+  "Backend": "./Backend",
+  "Web": "./Web",
+  "Mobile": "./Mobile"
+}
