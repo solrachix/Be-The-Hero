@@ -1,0 +1,12 @@
+{
+  "project_name": "Be The Hero",
+  "type": "Fullstack",
+  
+  "template_url": "./assets/Template.png",
+  "logo_url": "./Web/src/assets/logo.svg",
+
+
+  "backend": "./backend",
+  "web": "./web",
+  "mobile": "./mobile"
+}
