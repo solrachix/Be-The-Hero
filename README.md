@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Be the Hero" src="https://github.com/solrachix/be-the-hero/blob/master/assets/Template.png?raw=true"  width="800px" style="border-radius:16px;"/>
+    <img alt="Be the Hero" src="https://github.com/solrachix/be-the-hero/blob/master/assets/Template.png?raw=true"  width="800px" />
 </h1>
 
 <h3 align="center" >
